@@ -139,6 +139,25 @@ npx tsx 11-custom-mcp-tools.ts
 
 ---
 
+### 12-multiple-mcp-tools.ts
+**多个自定义工具与错误处理**
+
+演示如何：
+- 在一个 MCP 服务器中定义多个工具
+- 使用 `toolCallLog` 记录工具调用日志
+- 处理错误情况（空数组、无效操作等）
+
+包含三个工具：
+- `string_operations`：字符串处理（大小写、反转、长度）
+- `array_operations`：数组操作（求和、平均值、最大值、最小值、排序）
+- `random_choice`：随机选择
+
+```bash
+npx tsx 12-multiple-mcp-tools.ts
+```
+
+---
+
 ## 运行所有示例
 
 ```bash
