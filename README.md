@@ -158,6 +158,20 @@ npx tsx 12-multiple-mcp-tools.ts
 
 ---
 
+### 13-http-mcp-server.ts
+**HTTP MCP 服务器**
+
+演示如何：
+- 配置 HTTP 传输的远程 MCP 服务器
+- 使用 `allowedTools` 限制可用的工具
+- 使用 `permissionMode: 'bypassPermissions'` 自动授权
+
+```bash
+npx tsx 13-http-mcp-server.ts
+```
+
+---
+
 ## 运行所有示例
 
 ```bash
