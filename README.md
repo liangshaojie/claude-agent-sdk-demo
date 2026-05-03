@@ -172,6 +172,26 @@ npx tsx 13-http-mcp-server.ts
 
 ---
 
+### 14-github-mcp-server.ts
+**GitHub MCP 服务器**
+
+演示如何：
+- 使用 GitHub 官方 MCP 服务器 (`@modelcontextprotocol/server-github`)
+- 通过环境变量 `GITHUB_TOKEN` 配置认证
+- 调用 `list_issues` 工具查询仓库 Issues
+
+需要设置 GitHub Personal Access Token：
+```bash
+export GITHUB_TOKEN=your_github_token_here
+npx tsx 14-github-mcp-server.ts
+```
+
+```bash
+npx tsx 14-github-mcp-server.ts
+```
+
+---
+
 ## 运行所有示例
 
 ```bash
