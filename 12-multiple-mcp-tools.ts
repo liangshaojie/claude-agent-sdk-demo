@@ -1,7 +1,8 @@
 import { tool, createSdkMcpServer, query } from "@anthropic-ai/claude-agent-sdk";
 import { z } from "zod";
 
-// 工具1：字符串处理
+// 工具调用计数器（用于演示）
+const toolCallLog: string[] = [];
 const stringTools = tool(
   "string_operations",
   "Perform various string operations",
@@ -10,6 +11,7 @@ const stringTools = tool(
     text: z.string().describe("Input text")
   },
   async (args) => {
+    toolCallLog.push(`string_operations(${args.operation}, "${args.text}")`);
     switch (args.operation) {
       case "uppercase":
         return { content: [{ type: "text", text: args.text.toUpperCase() }] };
@@ -34,6 +36,7 @@ const arrayTools = tool(
     numbers: z.array(z.number()).describe("Array of numbers")
   },
   async (args) => {
+    toolCallLog.push(`array_operations(${args.operation}, [${args.numbers}])`);
     const { numbers } = args;
 
     if (numbers.length === 0) {
@@ -73,6 +76,7 @@ const randomChoice = tool(
     options: z.array(z.string()).describe("List of options to choose from")
   },
   async (args) => {
+    toolCallLog.push(`random_choice([${args.options}])`);
     if (args.options.length === 0) {
       return { content: [{ type: "text", text: "Error: No options provided" }], isError: true };
     }
@@ -92,8 +96,6 @@ const myServer = createSdkMcpServer({
 
 async function main() {
   console.log("=== 示例 12：多个自定义工具与错误处理 ===\n");
-
-  let toolCallCount = 0;
 
   const prompt = `请依次调用以下工具完成任务：
 1. string_operations - 将 "Hello" 转为大写
@@ -127,6 +129,9 @@ async function main() {
       console.log("\n[最终结果]", result);
     }
   }
+
+  console.log(`\n[工具调用日志] 共 ${toolCallLog.length} 次调用:`);
+  toolCallLog.forEach((log, i) => console.log(`  ${i + 1}. ${log}`));
 }
 
 main().catch(console.error);
