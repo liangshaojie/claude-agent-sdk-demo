@@ -294,6 +294,57 @@ npx tsx 17-skills-example.ts
 
 ---
 
+### 18-plugins-example.ts
+
+**Plugin（插件）系统**
+
+演示插件的概念和使用方式。
+
+**💡 插件的作用**：
+
+将 skills、agents、commands、hooks 等**打包成一个完整的包**，便于：
+
+- 📦 **分发和复用**：一次打包，到处使用
+- 🔧 **版本管理**：统一管理插件版本
+- 🎯 **命名空间**：避免技能名称冲突（如 `/plugin-name:skill-name`）
+
+**插件结构示例：**
+
+```text
+my-custom-plugin/
+├── .claude-plugin/
+│   └── plugin.json       # 必需：插件清单
+├── skills/               # 技能
+│   ├── greeting/
+│   │   └── SKILL.md
+│   └── task-planner/
+│       └── SKILL.md
+└── agents/               # 代理
+    └── code-reviewer.md
+```
+
+**使用方式：**
+
+```typescript
+// 加载插件包
+options: {
+  plugins: [{ type: "local", path: "./my-custom-plugin" }];
+}
+
+// 调用插件技能（使用命名空间）
+prompt: "/my-custom-plugin:greeting 生成问候语";
+```
+
+**包含 6 个示例**：加载插件包、使用插件技能、任务规划、多插件加载、插件与项目配置结合、验证插件结构。
+
+```bash
+npx tsx 18-plugins-example.ts
+```
+
+**注意**：SDK 的插件加载机制可能与 Claude Code IDE 有所不同，本示例展示了插件的标准结构和使用方式。
+
+---
+
 ## 运行所有示例
 
 ```bash

@@ -1,0 +1,8 @@
+{
+  "name": "my-custom-plugin",
+  "version": "1.0.0",
+  "description": "自定义插件示例 - 包含问候技能、任务规划和代码审查",
+  "author": {
+    "name": "liangshaojie"
+  }
+}
