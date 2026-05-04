@@ -228,23 +228,23 @@ npx tsx 14-github-mcp-server.ts
 - 使用 `tools` 限制子代理可使用的工具
 - 使用 `model` 为不同子代理选择不同模型（haiku/sonnet/opus）
 
-包含15个示例场景：
+包含 15 个示例场景：
 
 1. 基础单代理查询
 2. 代码审查流程（安全+质量双代理）
-3. 不同模型权衡（haiku快速 vs opus深度）
+3. 不同模型权衡（haiku 快速 vs opus 深度）
 4. 只读代理分析
-5. 测试执行代理（Bash访问）
+5. 测试执行代理（Bash 访问）
 6. 文档生成流水线
 7. 性能优化流水线
 8. 调试专家系统
 9. 重构规划专家
 10. 安全扫描流水线
-11. 架构评审委员会（3代理）
-12. TypeScript迁移助手
+11. 架构评审委员会（3 代理）
+12. TypeScript 迁移助手
 13. 需求分析团队
-14. CI/CD质量门禁（3代理）
-15. 学习辅导助手（3代理）
+14. CI/CD 质量门禁（3 代理）
+15. 学习辅导助手（3 代理）
 
 ```bash
 npx tsx 15-query-examples.ts
@@ -263,7 +263,7 @@ npx tsx 15-query-examples.ts
 - 使用 `disableDefaultSlashCommands` 禁用内置命令
 - 在 prompt 中通过 `/command-name` 格式触发命令
 
-包含4个子示例：
+包含 4 个子示例：
 
 1. 基础 slash command 配置
 2. 按顺序执行多个命令
@@ -272,6 +272,24 @@ npx tsx 15-query-examples.ts
 
 ```bash
 npx tsx 16-slash-commands.ts
+```
+
+---
+
+### 17-skills-example.ts
+
+**Skills（技能）系统示例**
+
+展示如何使用 Agent Skills 扩展 Claude 的专业能力。包含 8 个示例：基础使用、PDF 处理、数据分析、代码重构、多 Skill 协作、与子代理结合、发现测试、权限控制。
+
+项目包含三个示例 Skills：
+
+- `.claude/skills/pdf-processor/` - PDF 文档处理
+- `.claude/skills/data-analyzer/` - 数据分析
+- `.claude/skills/code-refactor/` - 代码重构
+
+```bash
+npx tsx 17-skills-example.ts
 ```
 
 ---
