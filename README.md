@@ -216,6 +216,66 @@ npx tsx 14-github-mcp-server.ts
 
 ---
 
+### 15-query-examples.ts
+
+**子代理(Subagent)调用示例**
+
+展示如何使用 `agents` 配置进行多代理协作。主要功能：
+
+- 定义多个专用子代理（安全审计、代码审查、测试执行等）
+- 使用 `description` 描述代理职责，让 Claude 智能分配任务
+- 使用 `prompt` 定义子代理行为和专业知识
+- 使用 `tools` 限制子代理可使用的工具
+- 使用 `model` 为不同子代理选择不同模型（haiku/sonnet/opus）
+
+包含15个示例场景：
+
+1. 基础单代理查询
+2. 代码审查流程（安全+质量双代理）
+3. 不同模型权衡（haiku快速 vs opus深度）
+4. 只读代理分析
+5. 测试执行代理（Bash访问）
+6. 文档生成流水线
+7. 性能优化流水线
+8. 调试专家系统
+9. 重构规划专家
+10. 安全扫描流水线
+11. 架构评审委员会（3代理）
+12. TypeScript迁移助手
+13. 需求分析团队
+14. CI/CD质量门禁（3代理）
+15. 学习辅导助手（3代理）
+
+```bash
+npx tsx 15-query-examples.ts
+```
+
+---
+
+### 16-slash-commands.ts
+
+**Slash Commands（斜杠命令）示例**
+
+展示如何在 SDK 中配置和使用自定义 slash commands。主要功能：
+
+- 定义 slash command 的名称、描述和触发行为
+- 在 `slashCommands` 选项中注册自定义命令
+- 使用 `disableDefaultSlashCommands` 禁用内置命令
+- 在 prompt 中通过 `/command-name` 格式触发命令
+
+包含4个子示例：
+
+1. 基础 slash command 配置
+2. 按顺序执行多个命令
+3. 带参数的命令
+4. 禁用内置命令
+
+```bash
+npx tsx 16-slash-commands.ts
+```
+
+---
+
 ## 运行所有示例
 
 ```bash
